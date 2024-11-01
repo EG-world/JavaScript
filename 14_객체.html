@@ -13,7 +13,7 @@
             age: 15,
             color: 'white',
             birthday: '20091210',
-            'weigth': 4.5,
+            'weight': 4.5,
             ['height']: 0.8,
             ['owner-name']: '김사과',
             getBirthday: function() {
@@ -42,6 +42,22 @@
         }
 
         console.log(getValue(Rucy, 'age'))
+
+        //동적으로 프러퍼티를 추가하는 함수
+        function addkey(obj, key, value) {
+            obj[key] = value
+        }
+
+        addkey(Rucy, 'weight', 4.2)
+        console.log(Rucy)
+
+        // 동적으로 프러퍼티를 삭제하는 함수
+        function deleteKey(obj, key) { // 호이스팅 됐기 때문에 출력값은 전에 출력한 값들도 다 지워졌을 것이다.
+            delete obj[key]
+        }
+
+        deleteKey(Rucy, 'owner-name')
+        console.log(Rucy)
 
         console.log('------------------------------------')
 

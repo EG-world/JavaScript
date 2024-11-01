@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    <script>
+        // Class를 이용한 객체 생성
+        const Student = class {
+            // #: private
+            #name
+            #hp
+
+            // static: 정적 프러퍼티 및 메서드를 생성
+            static count_student = 100
+            static makeStudent() {
+                return new Student('반하나', '010-2222-2222', 25)
+            }
+
+            constructor(name, hp, age) {
+                this.#name = name
+                this.#hp = hp
+                this.age = age
+            }
+
+            getName = () => {
+                return `제 이름은 ${this.name} 입니다`
+            }
+
+            set name(value) {
+                console.log('set', value)
+                this.#name = value
+            }
+
+            set hp(value) {
+                console.log('set', value)
+                this.#hp = value
+            }
+
+            get name() {
+                return this.#name
+            }
+
+            get hp() {
+                return this.#hp
+            }
+        }
+
+        const apple = new Student('김사과', '010-1111-1111', 20)
+        console.log(apple)
+        console.log(apple.name)
+        console.log(apple.getName())
+
+        console.log(Student.count_student)
+        const banana = Student.makeStudent()
+        console.log(banana)
+
+        console.log('-------------------------------------')
+        
+        // get 프러퍼티가 실행
+        console.log(apple.name)
+        // set 프러퍼티가 실행
+        apple.name = '사과킴'
+        // get 프러퍼티가 실행
+        console.log(apple.name)
+        
+    </script>
+</body>
+</html>

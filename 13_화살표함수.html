@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표 함수</title>
+</head>
+<body>
+    <!-- 
+        화살표 함수 : 함수를 간결하게 작성할 수 있는 새로운 함수 표현식
+    -->
+    <script>
+        const func1 = () => console.log('Hello JavaScript')
+
+        func1()
+
+        const func2 = num => num * num
+
+        let result = func2(10)
+        console.log(result)
+
+        const func3 = (start, end) => {
+            let sum = 0
+            for(let i=start; i<=end; i++) {
+                sum += i
+            }
+            return sum
+        }
+
+        result = func3(1,100)
+        console.log(result)
+
+        
+        // 콜백함수 활용
+        const calc_add = (a,b) => a + b
+        const calc_multiply = (a,b) => a * b
+
+        function calculater(num1, num2, action) {
+            if (num1 < 0 || num2 < 0) return
+            const result = action(num1, num2)
+            return result
+        } 
+
+        console.log(calculater(10, 3, calc_add))
+        console.log(calculater(10, 3, calc_multiply))
+    </script>
+</body>
+</html>

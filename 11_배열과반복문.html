@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열과 반복문</title>
+</head>
+<body>
+    <script>
+        const userArr = [1, 'apple', '김사과', 20, '서울 강남구']
+
+        // for in: 배열의 인덱스 (let i=0; userArr.length; i++)과 같다
+        for(let i in userArr) {
+           console.log(`i:${i}, ${userArr[i]}`) 
+        }
+
+        // for of: 배열의 값
+        for(let v of userArr) {
+            console.log(`v:${v}`) 
+        }
+
+        // forEach()함수: 괄호안에 익명 함수를 실행하는데 매개변수는 value, idx, arr 로 정해져있다
+        userArr.forEach(function(value, idx, arr) {         // 세개 다 생략이 가능하다.
+            console.log(`v:${value}, i:${idx}, arr:${arr}`)
+        })
+
+        
+    </script>
+</body>
+</html>

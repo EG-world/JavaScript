@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <script>
+        // 리터럴 표기법 (하나의 객체를 만들 때 사용하는 방법)
+        const Rucy = {
+            name: '루시',
+            age: 15,
+            color: 'white',
+            birthday: '20091210',
+            'weigth': 4.5,
+            ['height']: 0.8,
+            ['owner-name']: '김사과',
+            getBirthday: function() {
+                return this.birthday
+            }
+        }
+
+        console.log(Rucy.name)
+        console.log(Rucy.age)
+        console.log(Rucy.weigth)
+        console.log(Rucy.height)
+        console.log(Rucy['owner-name']) // for문에서 사용하기가 좋다.
+        console.log(Rucy.getBirthday()) 
+        console.log(Rucy.getBirthday) // 주소가 찍힘
+
+        Rucy.famliy = '포메'
+        console.log(Rucy.famliy)
+
+        delete Rucy['weight']
+        console.log(Rucy)
+        console.log(Rucy['weight'])
+
+        // 동적으로 프러퍼티에 접근하는 함수
+        function getValue(obj, key) {
+            return obj[key]
+        }
+
+        console.log(getValue(Rucy, 'age'))
+
+        console.log('------------------------------------')
+
+        // 생성자를 이용한 객체
+        function Dog(name, color) {
+            this.name = name
+            this.color = color
+            this.eat = function() {
+                return `${this.name}은(는) 사료를 먹습니다`
+            }
+        }
+
+        const PPomi = new Dog('뽀미', '흰색')     // heap 메모리에 올라감
+        const PPori = new Dog('뽀리', '흰색')
+
+        console.log(PPomi.name)
+        console.log(PPori.color)
+        console.log(PPomi.eat())
+        console.log(PPori.eat())
+    </script>
+</body>
+</html>

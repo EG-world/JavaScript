@@ -8,12 +8,56 @@
 <body>
     <script>
         // number 형
-        const num1 = 10;
-        const num2 = 11.11;
-        const num3 = 10e6; // 10의6승
-        console.log(num1);
-        console.log(num2);
-        console.log(num3);
+        const num1 = 10
+        const num2 = 11.11
+        const num3 = 10e6 // 10의6승
+        console.log(num1)
+        console.log(num2)
+        console.log(num3)
+        console.log(typeof(num1))
+        console.log(typeof(num2))
+        console.log(typeof(num3))
+
+        // string 형
+        const str1 = 'Hello'
+        const str2 = 'JavaScript'
+        const str3 = '10'
+        console.log(typeof(str1))
+        console.log(num1 + num2)
+        console.log(str1 + str2)
+        console.log(str1 + ' ' + str2)
+        console.log(`${str1} ${str2}`)
+        console.log(`자바스크립트에서는 문자열을
+    큰 따옴표 또는 작은 따옴표로 
+        저장한다`)
+
+        // 파이썬과 다르게 오류나지 않고 JS판단하에 작동하게 연산하게 된다.
+        console.log(num1 + str1)
+        console.log(typeof(num1 + str1)) // string으로 인식
+        console.log(num1 - str3)
+        console.log(typeof(num1 - str3))
+        console.log(num1 * str3)
+        console.log(num1 / str3)
+        console.log(str1 * num1) // 결과는 NaN
+
+        // boolean 형
+        const b1 = true
+        const b2 = false
+        console.log(typeof(b1))
+        console.log(10>5)
+
+        // undefined 형 (데이터 타입이 정해지지 않았다라는 데이터 타입)
+        let num
+        console.log(num)
+        console.log(typeof(num))
+
+        // null 형
+        let obj1 = {}
+        console.log(obj1)
+        console.log(typeof(obj1))
+        let obj2 = null
+        console.log(obj2)
+        console.log(typeof(obj2))
     </script>
 </body>
 </html>

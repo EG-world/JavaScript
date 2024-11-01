@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch문 활용</title>
+</head>
+<body>
+    <!-- 
+        원하는 달을 입력받아 해당 달의 마지막 일자가 무엇인지 출력하는 프로그램을 만들어보자
+
+        결과: 7월의 마지막 일자는 31일 입니다.
+    -->
+    <script>
+        let month = Number(prompt('몇월을 검색하시겠습니까?')) // const는 바뀌지 않기 때문에 let을 사용해야한다. (중요!!)
+        switch(month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                month += '월의 마지막 일자는 31일 입니다'
+                break
+            case 2:
+                month += '월의 마지막 일자는 29일 입니다'
+                break
+            case 4: case 6: case 9: case 11:
+                month += '월의 마지막 일자는 30일 입니다'
+                break
+            default:
+                console.log('잘못 입력하셨습니다.')
+                month = '입력값 오류'
+        } 
+        console.log(month)
+    </script>
+</body>
+</html>

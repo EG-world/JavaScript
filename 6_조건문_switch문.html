@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문 - Switch문</title>
+</head>
+<body>
+    <script>
+        let input = prompt('아동, 청소년, 성인 중 하나를 입력하세요')
+        switch(input) { // break를 걸지 않으면 아래 문장들을 case를 확인도 하지 않고 무조건 실행한다.
+            case '아동' :
+                input += ': 입장료 무료'
+                break
+            case '청소년' :
+                input += ': 입장료 5,000원'
+            case '성인' :
+                input += ': 입장료 11,000원'
+                break
+            default :
+                alert('입력값을 확인하세요')
+                input = '입력값 오류'
+        }
+        console.log(input)
+    </script>
+</body>
+</html>

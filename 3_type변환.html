@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>type변환</title>
+</head>
+<body>
+    <script>
+        console.log(10 + '문자열')
+        console.log('3' * '5')
+        console.log(typeof('3' * '5'))
+        console.log(1 - '일') // NaN
+
+        const num1 = '10'
+        const num2 = '3.5'
+        console.log(`현재 num1의 타입: ${typeof(num1)}`)
+        // 형 변환 (string -> number)
+        console.log(`Number(num1)의 타입: ${typeof(Number(num1))}`)
+        // 형 변환 (string)
+        console.log(`String(num1)의 타입: ${typeof(String(num1))}`)
+        // 형 변환 (string -> boolean)
+        console.log(`Boolean(num1)의 타입: ${typeof(Boolean(num1))}, ${Boolean(num1)}`)
+        // 형 변환 (string -> object)
+        console.log(`Object(num1)의 타입: ${typeof(Object(num1))}`)
+        // parseInt
+        console.log(`parseInt(num1)의 타입: ${typeof(parseInt(num2))}, ${parseInt(num2)}`)
+        // parseFloat
+        console.log(`parseFloat(num1)의 타입: ${typeof(parseFloat(num2))}, ${parseFloat(num2)}`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+console.log('start.js 출력')

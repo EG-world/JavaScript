@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location과 History 객체</title>
+</head>
+<body>
+    <script>
+        function pageInfo() {
+            // http://127.0.0.1:5500/23_Location%EA%B0%9D%EC%B2%B4.html
+            // 프로토콜(http:) + 구분자(//) + 주소 + 포트번호(:5500) + 패스네임(방향)
+            console.log(`현재 문서의 URL주소: ${location.href}`)
+            console.log(`현재문서의 protocol: ${location.protocol}`)
+            console.log(`현재문서의 hostname: ${location.hostname}`)
+            console.log(`현재문서의 port: ${location.port}`)
+            console.log(`현재문서의 pathname: ${location.pathname}`)
+        }    
+        
+        function sendit() {
+            location.href = 'https://python.org'
+        }
+    </script>
+    <button onclick="pageInfo()">페이지 정보</button>
+    <button onclick="sendit()">이동하기</button>
+    <button onclick="location.reload()">새로고침</button>
+    <hr>
+    <button onclick="history.back()">뒤로</button>
+    <button onclick="history.forward()">앞으로</button>
+    <button onclick="history.go(0)">새로고침</button>
+</body>
+</html>

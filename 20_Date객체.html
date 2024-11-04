@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 객체</title>
+</head>
+<body>
+    <script>
+        console.log(new Date())
+        console.log(new Date(24, 11, 5))   // 24 : 2자리 입력시 1900년도, 11 : 0~11월까지로 표현 
+        console.log(new Date(2024, 10, 5))  // 2024.11.05일 표현 방법
+
+        const current_time = new Date()
+        console.log(`현재 연도 : ${current_time.getFullYear()}`)
+        console.log(`현재 월 : ${current_time.getMonth() + 1}`) // 지금은 11월이지만 0~11월까지로 표현하기 때문에 +1
+        console.log(`현재 일 : ${current_time.getDate()}`)
+        console.log(`현재 시 : ${current_time.getHours()}`)
+        console.log(`현재 분 : ${current_time.getMinutes()}`)
+        console.log(`현재 초 : ${current_time.getSeconds()}`)
+    </script>
+</body>
+</html>

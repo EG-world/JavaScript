@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시계 만들기</title>
+</head>
+<body>
+    <!-- 
+        console에 '년-월-일 시:분:초' 형태로 1초마다 출력하는 시계를 만들어보자
+        (단, 화면에 "시작", "중지" 버튼을 만들어 시작을 누르면 시계가 작동하고 중지를 누르면 시계가 중지됨)
+    -->
+
+    <script>      
+        function makeClock() {   
+            const time = new Date()  
+            yy = time.getFullYear()
+            MM = time.getMonth() + 1
+            dd = time.getDate()
+            hh = time.getHours()
+            mm = time.getMinutes()
+            ss = time.getSeconds()
+            console.log(`${yy}-${MM}-${dd} ${hh}:${mm}:${ss}`)
+        }
+
+        let si
+
+        function startClock() {
+            si = setInterval(makeClock, 1000)
+        }
+
+        function stopClock() {
+            clearInterval(si)
+            console.log('종료됨')
+        }
+    </script>
+    <button onclick="startClock()">시작</button>
+    <button onclick="stopClock()">중지</button>
+</body>
+</html>

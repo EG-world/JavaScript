@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <!-- 
+        프로토타입
+        - JS의 모든 객체는 Prototype이라는 객체를 가지고 있음
+        - 모든 객체는 Prototype으로부터 프로퍼티(변수)와 프로퍼티 메서드(함수)를 상속받음 (파이썬에서 오브젝트 객체와 비슷함)
+        - 모든 객체는 최소한 하나 이상의 다른 객체로부터 상속을 받으며, 상속되는 정보를 제공하는 객체, 즉 Prototype이라고 함
+
+        상속
+        - 클래스 기반의 객체지향 언어와 다름
+        - JS는 Prototype 기반의 객체지향언어
+            const dog = new Dog()   // Dog.prototype, Object.prototype (Dog 형태도 받고 Object의 형태도 상속받음)
+    -->
+    <script>
+        function Dog(color, name, age) {
+            this.color = color
+            this.name = name
+            this.age = age
+        }
+
+        const Rucy = new Dog('흰색', '루시', 15)
+        console.log(Rucy)
+        console.log(`이름: ${Rucy.name}`)
+        console.log(`색상: ${Rucy.color}`)
+        console.log(`나이: ${Rucy.age}`)
+        Rucy.family = '포메' // 호이스팅 발생
+        Rucy.getFamily = function () {
+            return this.family
+        }
+        console.log(`종: ${Rucy.family}`)
+        console.log(`getFamily: ${Rucy.getFamily()}`)
+
+        const PPomi = new Dog('흰색', '뽀미', 6)
+        console.log(`이름: ${PPomi.name}`)
+        console.log(`색상: ${PPomi.color}`)
+        console.log(`나이: ${PPomi.age}`)
+        console.log(`종: ${PPomi.family}`)
+        // console.log(`종: ${PPomi.getFamily()}`) 정의 되지 않는 함수는 undefined가 아닌 오류가 발생된다.
+        console.log('------------------------')
+
+        Dog.prototype.owner = '김사과'      // 모든 객체는 prototype이라는 오브젝트가 있기 때문에 적용됨, 호이스팅 발생(Dog가 아닌 object객체에 추가되어있음)
+        // 프로퍼티 메서드 형태
+        Dog.prototype.run = function() { 
+            return this.name + '달립니다'
+        }
+
+
+        console.log(`Rucy 소유자 : ${Rucy.owner}`)
+        console.log(`PPomi 소유자 : ${PPomi.owner}`)
+        console.log(`Rucy run : ${Rucy.run()}`)
+        console.log(`PPomi 소유자 : ${PPomi.run()}`)
+
+
+    </script>
+</body>
+</html>

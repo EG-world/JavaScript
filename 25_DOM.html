@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script>
+        window.onload = function() {
+            const gnb = document.getElementById('gnb') // nav태그
+            console.log(gnb)
+            console.log(gnb.parentNode) // 부모노드 가져오기
+            console.log(gnb.children[0])
+            console.log(gnb.children[1])
+            console.log(gnb.children[0].children[0])
+            console.log(gnb.children[0].children[1])
+            console.log(gnb.children[0].firstChild) // ul 다음 enter를 입력했기 떄문에 text
+            console.log(gnb.children[0].firstElementChild)
+            console.log(gnb.children[0].children[0].nextElementSibling)
+
+
+            
+        }
+    </script>
+</head>
+<body>
+    <!-- 
+        DOM (Document Object Model, 문서 객체 모델)
+        document 객체 (가장 중요함)
+    -->
+    <ul>
+        <li name="python">Python</li>
+        <li id="DB">MySQL</li>
+        <li class="front">Html</li>
+        <li class="front">CSS</li>
+        <li class="js front">JavaScript</li>
+        <li class="js">Node.js</li>
+        <li class="js">React</li>
+        <li name="python">FastAPI</li>
+        <hr>
+
+        <div>
+            <nav3 id="gnb">
+                <ul>
+                    <li>내용 1</li>
+                    <li>내용 2</li>
+                    <li>내용 3</li>
+                </ul>
+            </nav3>
+        </div>
+    </ul>
+    <script>
+        const tagName = document.getElementsByTagName('li')
+        for(let i=0; i<tagName.length; i++) {
+            tagName[i].style.color = 'gold'
+        }
+        // console.log(tagName)
+        
+
+        const names = document.getElementsByName('python')
+        for(let i=0; i<names.length; i++) {
+            names[i].style.color = 'deeppink'
+        }
+
+        const className = document.getElementsByClassName('js')
+        for(let i=0; i<className.length; i++) {
+            className[i].style.color = 'deepskyblue'
+        }
+
+        const idName = document.getElementById('DB')
+        idName.style.color = 'greenyellow'
+
+        const qsa = document.querySelectorAll('li.front')
+        for(let i=0; i<qsa.length; i++) {
+            qsa[i].style.color = 'navy'
+        }
+    </script>
+</body>
+</html>

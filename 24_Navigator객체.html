@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator 객체</title>
+</head>
+<body>
+    <script>
+        console.log(navigator.userAgent)
+        console.log(navigator.platform)
+        console.log(navigator.language)
+        console.log(navigator.cookieEnabled)
+        navigator.geolocation.getCurrentPosition((position) => {
+            console.log(position.coords.latitude, position.coords.longitude)
+        })
+        
+        // 동기, 비동기 때 할 예정
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then((stream) => { // then() : 성공했다면
+                console.log('미디어 스트림: ', stream)
+            })
+            .catch((error) => { // catch() : 실패했다면
+                console.log('미디어 엑세스 에러: ', error)
+            })
+
+        navigator.clipboard.writeText('복사할 텍스트').then(() => {
+            console.log('클립보드에 복사 되었음')
+        })
+
+        navigator.vibrate([200, 100, 200])  // 핸드폰에서 옴(200ms진동 , 100ms 쉬고, 200ms 진동)
+        
+    </script>
+</body>
+</html>

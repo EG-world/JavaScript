@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Method</title>
+    <script>
+        function appendNode() {
+            const parent = document.getElementById('list')
+            const newItem = document.getElementById('js2')
+            parent.appendChild(newItem)
+        }
+
+        function insertNode() {
+            const parent = document.getElementById('list')
+            const backend = document.getElementById('backend')
+            const newItem = document.getElementById('js2')
+            parent.insertBefore(newItem, backend)
+        }
+
+        function appendText() {
+            const text = document.getElementById('text').firstChild
+            text.insertData(7, '아주 피곤한 월요일 ')
+        }
+
+        function createNode() {
+            const newItem = document.getElementById('js1')
+            const newNode = document.createElement('p') // p태그 생성
+            // <p><b>🎃 새로운 요소가 추가됨</b></p>
+            newNode.innerHTML = '<b>🎃 새로운 요소가 추가됨</b>'
+            document.body.insertBefore(newNode, newItem)
+        }
+
+        function createAttr() {
+            const newItem = document.getElementById('js2')
+            const newAttr = document.createAttribute('style') // style=''
+            // style = 'color: deeppink; background-color:gold;'
+            newAttr.value = 'color: deeppink; background-color:gold;'
+            newItem.setAttributeNode(newAttr)
+        }
+
+        function createText() {
+            const textNode = document.getElementById('ct')
+            const newText = document.createTextNode('🎃👀👅✔🙋‍♂️❤🎈🧨')
+            textNode.appendChild(newText)
+        }
+
+        function removeNode() {
+            const parent = document.getElementById('list')
+            const removeItem = document.getElementById('backend')
+            const result = parent.removeChild(removeItem)
+            console.log(result)
+        }
+
+        function removeAttr() {
+            const newItem = document.getElementById('js2')
+            newItem.removeAttribute('style')
+        }
+
+        function cloneElement() {
+            const parent = document.getElementById('list')
+            const originItem = document.getElementById('nm')
+            parent.appendChild(originItem.cloneNode(false)) // 자식까지 같이 복사
+
+        }
+    </script>
+</head>
+<body>
+    <h2 id="nm">Node Method</h2>
+    <div id="list">
+        <p id="backend">Node.js</p>
+        <p>HTML</p>
+        <p>CSS</p>
+    </div>
+    <p id="js1">JavaScript</p>
+    <p id="js2">React</p>
+    <p id="text">현재 시간은 오후3시</p>
+    <p id="ct"></p>
+    <hr>
+    
+    <button onclick="appendNode()">Node 추가1</button>
+    <button onclick="insertNode()">Node 추가2</button>
+    <button onclick="appendText()">Text 추가</button>
+    
+    <hr>
+    <button onclick="createNode()">노드 생성</button>
+    <button onclick="createAttr()">속성노드 생성</button>
+    <button onclick="createText()">텍스트노드 생성</button>
+
+    <hr>
+    <button onclick="removeNode()">노드삭제</button>
+    <button onclick="removeAttr()">속성삭제</button>
+    <button onclick="cloneElement()">노드복제</button>
+</body>
+</html>

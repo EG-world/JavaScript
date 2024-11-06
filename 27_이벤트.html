@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script>
+        let btn
+
+        // innerHTML은 문자칸을 의미함
+        window.onload = function() {
+            const text = document.getElementById('text')
+            // <p id="text"></p>
+            text.innerHTML = "<b style='color:deeppink'>HTML 문서가 로드되었습니다.</b>"
+
+            btn = document.getElementById('eventBtn') // btn 객체
+            btn.addEventListener('click',clickbtn)
+            btn.addEventListener('mouseover', mouseOverBtn)
+            btn.addEventListener('mouseout', mouseOutBtn)
+
+            const btn1 = document.getElementById('btn1')
+            const btn2 = document.getElementById('btn2')
+            const btn3 = document.getElementById('btn3')
+
+            btn1.addEventListener('click', btnClick)
+            btn2.addEventListener('click', btnClick)
+            btn3.addEventListener('click', (e) => {     // 익명함수(화살표 함수)
+                console.log('버튼3 눌림') 
+            })
+
+            const delbtn = document.getElementById('delBtn')
+            delbtn.addEventListener('click', delEvent)
+        }
+        
+        function changeText(el) {
+            // console.log(el) <- p태그 자체
+            el.innerHTML = "<b style='color:deepskyblue'>문자열이 변경되었습니다.</b>"
+        }
+
+        // e: 이벤트 객체
+        function clickbtn(e) {
+            console.log(e)
+            console.log(e.target)
+            console.log(e.target.id)
+            console.log(e.target.value)
+            console.log(e.target.type) // default값 버튼은 submit(서버로 보내주는)
+            document.getElementById('text').innerHTML = "<b>버튼을 클릭했어요!</b>"
+        }
+
+        function mouseOverBtn() {
+            document.getElementById('text').innerHTML = "<b>버튼위에 커서가 올라갔어요!</b>"
+        }
+
+        function mouseOutBtn() {
+            document.getElementById('text').innerHTML = "<b>버튼 밖으로 커서가 나갔어요!</b>"
+        }
+
+        function btnClick(e) {
+            switch(e.target.id) {
+                case 'btn1':
+                    console.log('버튼1 눌림') 
+                    break
+                case 'btn2':
+                    console.log('버튼2 눌림') 
+                    break
+            }
+        }
+
+        function delEvent() {
+            btn.removeEventListener('click',clickbtn)
+            btn.removeEventListener('mouseover',mouseOverBtn)
+            btn.removeEventListener('mouseout',mouseOutBtn)
+            document.getElementById('text').innerHTML = "<b>이벤트 핸들러가 삭제됐어요!</b>"
+        }
+    </script>
+</head>
+<body>
+    <p id="text"></p>
+    <p id="p" onclick="changeText(this)">문자열을 클릭하세요</p>
+    <hr>
+    <p><button id="eventBtn" value="이벤트 버튼 벨류">이벤트 버튼</button> <button id="delBtn">이벤트 삭제 버튼</button></p>
+    <hr>
+    <button type="button" id="btn1">버튼1</button>
+    <button type="button" id="btn2">버튼2</button>
+    <button type="button" id="btn3">버튼3</button>
+</body>
+</html>
